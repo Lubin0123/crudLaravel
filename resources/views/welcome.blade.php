@@ -6,38 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
 </head>
 <body>
 <h1 class="text-center p-3">Crud BiciMotos</h1>
 
-<div class="p-5">
-    <table class="table">
-        <thead>
+<div class="p-5 table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="bg-primary text-white">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">idProductos</th>
+            <th scope="col">Descripcion Productos</th>
+            <th scope="col">Precio</th>
+            <th scope="col">cantidad</th>
+            <th></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+        <tbody class="table-group-dividier">
+            {{-- en el foreach recibo la variable $datos que estoy enviando desde el controller --}}
+            @foreach ($datos as $item)
+
+                <tr>
+
+                    <td>{{$item->idProductos}}</td>
+                    <td>{{$item->descripcionProductos}}</td>
+                    <td><b>$</b>{{$item->precioProductos}}</td>
+                    <td>{{$item->cantidadProductos}}</td>
+                    <td>
+                        <a href="" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                        <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash3"></i></a>
+
+                     </td>
+
+                </tr>
+
+            @endforeach
+
         </tbody>
       </table>
 </div>
